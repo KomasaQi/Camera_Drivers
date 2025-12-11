@@ -1,6 +1,16 @@
 # WheelTech USB Camera ROS Driver
 作者：Komasa Qi
 
+## 直接打开相机查看（非ROS）
+先确认一下相机的设备节点是`/dev/video4`，如果不是，请根据实际情况修改。（ls /dev/video*）
+``` bash
+ffplay -f v4l2 -pixel_format mjpeg -video_size 1920x1080 -framerate 30 /dev/video4
+```
+## ROS启动相机节点
+``` bash
+roslaunch usb_camera usb_camera.launch
+```
+
 ## 参数标定：
 打印一个A3大小的棋盘格标定板，然后黏贴在一个平板上，保证平面度。然后我们启动下面的程序进行标定。需要注意的2个参数是`--size 9x6`和`--square 0.039`，这2个参数分别表示棋盘格的角点多少和每个格子的边长。如果你的棋盘格大小不是9x6，或者格子边长不是39mm，需要根据实际情况修改这2个参数。格子宽度请以实际测量为准。
 ``` bash

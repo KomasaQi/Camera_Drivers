@@ -19,6 +19,6 @@ roslaunch hk_cam hk_cam.launch
 
 ### 相机内参标定
 ``` bash 
-rosrun camera_calibration cameracalibrator.py --size 7x8 --square 35.2 image:=/hk/image_rect camera:=/hk --no-service-check
+rosrun camera_calibration cameracalibrator.py --size 9x6 --square 0.039 image:=/hk/image_rect camera:=/hk --no-service-check
 
 ```
