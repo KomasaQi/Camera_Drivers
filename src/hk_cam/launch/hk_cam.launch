@@ -1,0 +1,10 @@
+<launch>
+  <node name="hk_cam" pkg="hk_cam" type="hk_cam_node" output="screen" >
+    <param name="image_width" value="1920" />
+    <param name="image_height" value="1080" />
+    <param name="framerate" value="30" />
+    <param name="exposureval" value="2" />
+    <param name="triggermode" value="0" />
+    <param name="gainval" value="2" />
+  </node>
+</launch>

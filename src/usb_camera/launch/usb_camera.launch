@@ -1,0 +1,19 @@
+<launch>
+    <!-- 摄像头节点参数配置 -->
+    <node name="usb_camera_node" pkg="usb_camera" type="usb_camera_ros_node.py" output="screen">
+        <!-- 核心参数：根据需要修改 -->
+        <param name="~video_index" value="4" />        <!-- 摄像头设备索引 /dev/video4 -->
+        <param name="~width" value="640" />           <!-- 宽度 -->
+        <param name="~height" value="480" />          <!-- 高度 -->
+        <param name="~fps" value="30" />               <!-- 帧率 -->
+        <param name="~image_topic" value="/usb_cam/image_raw" />  <!-- 发布的图像话题 -->
+    </node>
+    
+    <!-- set_camera_info服务节点 -->
+    <node name="camera_info_service_node" pkg="usb_camera" type="camera_info_service.py" output="screen" />
+
+    <!-- 可选：启动rqt_image_view可视化图像（注释掉则不自动启动） -->
+    <node name="image_view" pkg="rqt_image_view" type="rqt_image_view" output="screen">
+        <remap from="/image" to="/usb_cam/image_raw" />
+    </node>
+</launch>
